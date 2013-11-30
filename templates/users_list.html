@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block subtitle %} :: users{% endblock %}
+{% block content %}
+	<h1>Users</h1>
+	<ul>
+	{% for u in users %}
+		<li>
+			<h2><a href="/users/{{u.name}}">{{u.name}}</a></h2>
+			<p>
+				Bacteries:
+				{% for b in u.bacts %}
+					<a href="/users/{{b.owner}}">{{b.owner}}</a>
+					({{b.amount}} %){% if not loop.last %}, {% endif %}
+				{% endfor %}
+			</p>
+		</li>
+	{% endfor %}
+	</ul>
+{% endblock %}

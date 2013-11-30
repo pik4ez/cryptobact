@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block subtitle %} :: map{% endblock %}
+{% block content %}
+	<div id="map"></div>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm1zSgfWESodBJf_NuJilZ2uQlI0KjwNc&sensor=false">
+	</script>
+	<script>
+		function initialize() {
+			var map = new google.maps.Map(document.getElementById("map"), {
+				center: new google.maps.LatLng(55.0167, 82.9333),
+				zoom: 8
+			});
+
+			var infowindow = new google.maps.InfoWindow();
+
+			{% for u in users %}
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng({{u.lat}}, {{u.long}}),
+					map: map,
+					title: '{{u.name}}'
+				});
+
+				var content =
+					'<h3><a href="/users/{{u.name}}">{{u.name}}</a></h3>' +
+					'<p>Bacteries: ' +
+						{% for b in u.bacts %}
+							{% if b.owner != u.name %}
+								'<a href="/users/{{b.owner}}">{{b.owner}}</a>' +
+							{% else %}
+								'{{b.owner}}' +
+							{% endif %}
+							' (' + {{b.amount}} + ' %){% if not loop.last %}, {% endif %}' +
+						{% endfor %}
+					'</p>';
+
+				google.maps.event.addListener(marker, 'click', (function(marker, content) {
+					return function() {
+						infowindow.setContent(content);
+						infowindow.open(map, marker);
+					};
+				})(marker, content));
+			{% endfor %}
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+{% endblock %}
