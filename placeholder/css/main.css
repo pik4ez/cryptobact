@@ -1,0 +1,50 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html{
+	height:100%;
+}
+
+body{
+	height:100%;
+	font-family:OpenSans, Arial, Helvetica, Verdana, sans-serif;
+	background:#D1F7D3;
+}
+
+h1{
+	font-size:300%;
+	font-family:'museo_500';
+}
+
+img{
+	opacity:0.1;
+	width:15%;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out;
+}
+
+img:hover{
+	opacity:0.3;
+}
+
+#container {
+	height:100%;
+	margin:auto;
+}
+
+#inner{
+	display:table;
+	height:auto;
+	overflow:auto;
+	margin:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	width:30%;
+	text-align:center;
+}
