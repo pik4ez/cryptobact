@@ -14,5 +14,32 @@
 			</a>
 		</div>
 	</div>
+	<script>
+		(function () {
+			var addEvent = function (el, type, fn) {
+				if (el.addEventListener) {
+					el.addEventListener(type, fn, false);
+				} else {
+					el.attachEvent('on' + type, fn);
+				}
+			};
+
+			var fitText = function(el) {
+				var fit = function(el) {
+					var resizer = function() {
+						var size = Math.max(Math.min(el.clientWidth / 8, Number.POSITIVE_INFINITY), 5) + 'px';
+						el.style.fontSize = size;
+					};
+					resizer();
+					addEvent(window, 'resize', resizer);
+				};
+
+				fit(el);
+				return el;
+			};
+
+			fitText(document.getElementsByTagName("h1")[0]);
+		 })();
+	</script>
 </body>
 </html>

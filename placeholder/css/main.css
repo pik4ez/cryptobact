@@ -14,13 +14,14 @@ body{
 }
 
 h1{
-	font-size:300%;
+	font-size:48px;
 	font-family:'museo_500';
+	font-weight:lighter;
 }
 
 img{
 	opacity:0.1;
-	width:15%;
+	width:10%;
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out;
