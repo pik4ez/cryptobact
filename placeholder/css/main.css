@@ -10,42 +10,44 @@ html{
 body{
 	height:100%;
 	font-family:OpenSans, Arial, Helvetica, Verdana, sans-serif;
-	background:#D1F7D3;
 }
 
 h1{
-	font-size:48px;
+	color:#666;
+	background-color:rgba(255,255,255,0.6);
+	font-size:300%;
 	font-family:'museo_500';
-	font-weight:lighter;
-}
-
-img{
-	opacity:0.1;
-	width:10%;
-	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;
-	transition:all 0.3s ease-in-out;
-}
-
-img:hover{
-	opacity:0.3;
-}
-
-#container {
-	height:100%;
-	margin:auto;
-}
-
-#inner{
-	display:table;
-	height:auto;
-	overflow:auto;
-	margin:auto;
 	position:absolute;
 	top:0;
 	left:0;
-	bottom:0;
+	z-index:20;
+	padding:0.2em 0.5em;
+}
+
+#map{
+	height:100%;
+	position:relative;
+	z-index:10;
+	opacity:0.8;
+}
+
+
+#controls{
+	padding:0.2em;
+	position:absolute;
 	right:0;
-	width:30%;
-	text-align:center;
+	bottom:5%;
+	background-color:rgba(180,180,180,0.6);
+	font-size:0.8em;
+	z-index:20;
+}
+
+#controls a{
+	color:#EEE;
+	text-decoration:none;
+	padding:0 0.3em;
+}
+
+#controls a:hover{
+	text-decoration:underline;
 }
